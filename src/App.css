@@ -1,0 +1,26 @@
+.bg-conic-gradient {
+    background: conic-gradient(from 220deg at 20% 40%, #0047FF, #0066FF, #007BFF, #1A8FFF, #3DAEFF);
+  }
+  
+  .bg-conic-gradient-e2 {
+    background: conic-gradient(from 220deg at 20% 40%, #fbfbfb, #ffffff, #eeeeee, #f3f3f3, #ececec);
+  }
+  
+  @font-face {
+    font-family: "Marzo";
+    src: url("/src/assets/fonts/Marzo.woff2") format("woff2"),
+         url("/src/assets/fonts/Marzo.woff") format("woff"),
+         url("/src/assets/fonts/Marzo.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  .font-marzo {
+    font-family: "Marzo", sans-serif;
+    -webkit-text-stroke: 3px rgb(255, 255, 255); /* Adds thickness */
+  }
+  
+  .font-marzo-e2 {
+    font-family: "Marzo", sans-serif;
+    -webkit-text-stroke: 3px rgb(0, 0, 0); /* Adds thickness */
+  }
