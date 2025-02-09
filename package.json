@@ -20,17 +20,13 @@
     "mongoose": "^8.10.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-<<<<<<< HEAD
     "@finosync/lex-dev-core": "^1.0.0",
     "@heroicons/react": "^2.2.0",
     "framer-motion": "^12.4.1",
-    "react-router-dom": "^6.17.0",
     "mongoose": "^7.6.3",
     "@auth0/auth0-react": "^2.0.1",
-    "@headlessui/react": "^1.7.17"
-=======
+    "@headlessui/react": "^1.7.17",
     "react-router-dom": "^7.1.5"
->>>>>>> 3642485 (Fixed UI & Build Errors)
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
