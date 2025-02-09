@@ -7,14 +7,20 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
+    "test": "echo \"No tests defined\" && exit 0",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@auth0/auth0-react": "^2.3.0",
+    "@finosync/lex-dev-core": "^1.0.0",
+    "@headlessui/react": "^2.2.0",
+    "@heroicons/react": "^2.2.0",
+    "@types/node": "^22.13.1",
+    "framer-motion": "^12.4.1",
+    "mongoose": "^8.10.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "@finosync/lex-dev-core": "^1.0.0",
-    "@heroicons/react": "^2.2.0",
-    "framer-motion": "^12.4.1"
+    "react-router-dom": "^7.1.5"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
@@ -32,7 +38,8 @@
     "tailwindcss": "^4.0.3",
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.18.2",
-    "vite": "^6.0.5"
+    "vite": "^6.0.5",
+    "@types/node": "^20.10.0"
   },
   "keywords": [
     "lex",
@@ -45,5 +52,5 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/FinoSyncCorp/lex-app-template/issues"
-  },
+  }
 }

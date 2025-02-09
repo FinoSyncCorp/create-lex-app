@@ -1,12 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Fragment } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import {
-  Dialog,
-  DialogBackdrop,
-  DialogPanel,
-  TransitionChild,
+  Dialog, Transition
 } from "@headlessui/react";
 import {
   Bars3Icon,
@@ -122,110 +119,47 @@ export default function Example() {
         ```
       */}
       <div className="flex h-full">
-        <Dialog
-          open={sidebarOpen}
-          onClose={setSidebarOpen}
-          className="relative z-40 lg:hidden"
-        >
-          <DialogBackdrop
-            transition
-            className="fixed inset-0 bg-gray-600/75 transition-opacity duration-300 ease-linear data-[closed]:opacity-0"
-          />
-
-          <div className="fixed inset-0 z-40 flex">
-            <DialogPanel
-              transition
-              className="relative flex w-full max-w-xs flex-1 transform flex-col bg-white transition duration-300 ease-in-out focus:outline-none data-[closed]:-translate-x-full"
-            >
-              <TransitionChild>
-                <div className="absolute right-0 top-0 -mr-12 pt-2 duration-300 ease-in-out data-[closed]:opacity-0">
-                  <button
-                    type="button"
-                    onClick={() => setSidebarOpen(false)}
-                    className="relative ml-1 flex size-10 items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+      <Transition show={sidebarOpen} as={Fragment}>
+        <Dialog as="div" className="relative z-40 lg:hidden" onClose={setSidebarOpen}>
+          <div className="fixed inset-0 bg-gray-600 bg-opacity-75" />
+          
+          <div className="fixed inset-0 flex z-40">
+            <Dialog.Panel className="relative flex w-full max-w-xs flex-1 flex-col bg-white">
+              <div className="absolute right-0 top-0 -mr-12 pt-2">
+                <button
+                  type="button"
+                  className="relative ml-1 flex size-10 items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                  onClick={() => setSidebarOpen(false)}
+                >
+                  <span className="absolute -inset-0.5" />
+                  <span className="sr-only">Close sidebar</span>
+                  <XMarkIcon aria-hidden="true" className="size-6 text-white" />
+                </button>
+              </div>
+              <nav className="mt-5 px-2">
+                {navigation.map((item) => (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className="group flex items-center rounded-md px-2 py-2 text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900"
                   >
-                    <span className="absolute -inset-0.5" />
-                    <span className="sr-only">Close sidebar</span>
-                    <XMarkIcon
-                      aria-hidden="true"
-                      className="size-6 text-white"
-                    />
-                  </button>
-                </div>
-              </TransitionChild>
-              <div className="h-0 flex-1 overflow-y-auto pb-4 pt-5">
-                <nav aria-label="Sidebar" className="mt-5">
-                  <div className="space-y-1 px-2">
-                    {navigation.map((item) => (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        aria-current={item.current ? "page" : undefined}
-                        className={classNames(
-                          item.current
-                            ? "bg-gray-100 text-gray-900"
-                            : "text-gray-600 hover:bg-gray-50 hover:text-gray-900",
-                          "group flex items-center rounded-md px-2 py-2 text-base font-medium"
-                        )}
-                      >
-                        <item.icon
-                          aria-hidden="true"
-                          className={classNames(
-                            item.current
-                              ? "text-gray-500"
-                              : "text-gray-400 group-hover:text-gray-500",
-                            "mr-4 size-6"
-                          )}
-                        />
-                        {item.name}
-                      </a>
-                    ))}
-                  </div>
-                  <hr
-                    aria-hidden="true"
-                    className="my-5 border-t border-gray-200"
-                  />
-                  <div className="space-y-1 px-2">
-                    {secondaryNavigation.map((item) => (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        className="group flex items-center rounded-md px-2 py-2 text-base font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900"
-                      >
-                        <item.icon
-                          aria-hidden="true"
-                          className="mr-4 size-6 shrink-0 text-gray-400 group-hover:text-gray-500"
-                        />
-                        {item.name}
-                      </a>
-                    ))}
-                  </div>
-                </nav>
+                    <item.icon className="mr-4 size-6 text-gray-400 group-hover:text-gray-500" />
+                    {item.name}
+                  </a>
+                ))}
+              </nav>
+              <div className="border-t border-gray-200 p-4">
+                <button
+                  onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}
+                  className="text-sm bg-red-600 p-1 rounded-md font-medium text-gray-100 group-hover:text-gray-100"
+                >
+                  Logout
+                </button>
               </div>
-              <div className="flex shrink-0 border-t border-gray-200 p-4">
-                <a href="#" className="group block shrink-0">
-                  <div className="flex items-center">
-                    <div className="ml-3">
-                      <button
-                        onClick={() =>
-                          logout({
-                            logoutParams: { returnTo: window.location.origin },
-                          })
-                        }
-                        className="text-base bg-red-600 p-1 rounded-md font-medium text-gray-100 group-hover:text-gray-100"
-                      >
-                        Logout
-                      </button>
-                    </div>
-                  </div>
-                </a>
-              </div>
-            </DialogPanel>
-            <div aria-hidden="true" className="w-14 shrink-0">
-              {/* Force sidebar to shrink to fit close icon */}
-            </div>
+            </Dialog.Panel>
           </div>
         </Dialog>
+      </Transition>
 
         {/* Static sidebar for desktop */}
         <div className="hidden lg:flex lg:shrink-0">
