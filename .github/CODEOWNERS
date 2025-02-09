@@ -1,6 +1,6 @@
 # Define owners for the entire repo
-* @FinoSyncCorp
+* @FinoSyncCorp @DayanIbrarFinoSync
 
 # Assign owners for specific files/folders
-.github/* @FinoSyncCorp
-src/* @FinoSyncCorp
+.github/* @FinoSyncCorp @DayanIbrarFinoSync
+src/* @FinoSyncCorp @DayanIbrarFinoSync
