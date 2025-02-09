@@ -1,7 +1,3 @@
-Here's your updated **README.md** for the **public Lex App template** that aligns with your **current features** while keeping it future-proof.  
-
----
-
 # **🚀 Create Lex App - The Fastest Way to Build Lex Apps**  
 
 ### **Pre-built Authentication, User Dashboard, Routes & Lex Dev Tools**  
