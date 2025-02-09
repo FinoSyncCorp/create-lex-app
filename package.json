@@ -10,11 +10,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@auth0/auth0-react": "^2.3.0",
+    "@finosync/lex-dev-core": "^1.0.0",
+    "@headlessui/react": "^2.2.0",
+    "@heroicons/react": "^2.2.0",
+    "@types/node": "^22.13.1",
+    "framer-motion": "^12.4.1",
+    "mongoose": "^8.10.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "@finosync/lex-dev-core": "^1.0.0",
-    "@heroicons/react": "^2.2.0",
-    "framer-motion": "^12.4.1"
+    "react-router-dom": "^7.1.5"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
@@ -45,5 +50,5 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/FinoSyncCorp/lex-app-template/issues"
-  },
+  }
 }
