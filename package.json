@@ -8,8 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "test": "echo \"No tests defined\" && exit 0",
-    "preview": "vite preview",
-    "postinstall": "npm run prepare"
+    "preview": "vite preview"
   },
   "dependencies": {
     "react": "^18.3.1",
