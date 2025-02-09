@@ -167,4 +167,3 @@ Now that your template is **ready to go**, you can:
 ✅ Publish it as **`create-lex-app`** on **npm**  
 ✅ Promote it in the **Lex community** 🚀  
 
-This README is **structured, clear, and beginner-friendly** while keeping the **Lex vision** intact. Let me know if you'd like to tweak anything! 🔥
