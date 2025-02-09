@@ -8,11 +8,14 @@
 ---
 
 ## **🔹 What’s Inside?**
-This template comes **pre-configured** with:  
-✅ **Lex Developer Tools** (`@finosync/lex-dev-core`)  
-✅ **Pre-built User Authentication (Auth0)**  
-✅ **Pre-built Dashboard & Routing**  
-✅ **TypeScript & TailwindCSS**  
+This template is built with **modern web technologies** and comes **pre-configured** with:  
+✅ **React 18 + Vite** (Fast, optimized frontend framework)  
+✅ **Lex Developer Tools** (`@finosync/lex-dev-core`) for in-app debugging  
+✅ **Pre-built User Authentication using Auth0**  
+✅ **MongoDB integration for data storage**  
+✅ **Tailwind CSS for styling & responsive design**  
+✅ **Pre-built Dashboard & Routing system**  
+✅ **TypeScript for strict type safety**  
 ✅ **.env.example** - All required environment variables pre-configured  
 
 ---
@@ -45,17 +48,80 @@ npm run dev
 
 ---
 
+## **🚀 How to Create a Lex App?**
+Creating a Lex app is simple and requires just a few steps:
+
+### **1️⃣ Run the Command**
+No need to specify a name—just run:
+```sh
+npx @finosync/create-lex-app
+```
+
+### **2️⃣ Enter Your Project Name**
+You'll be prompted to enter a **name** for your project. Choose a relevant name like:
+```
+MyLexApp
+```
+
+### **3️⃣ Select Your Framework**
+When prompted, choose:
+```
+React-TS (React with TypeScript)
+```
+This will generate a **fully configured Lex app**  
+
+### **4️⃣ Navigate to Your New Project**
+```sh
+cd my-lex-app
+```
+
+### **5️⃣ Install Dependencies**
+```sh
+npm install
+```
+
+### **6️⃣ Add Required Environment Variables**
+Before running the app, update your **`.env` file** with **Auth0** and other required settings:
+
+```ini
+# Auth0 Configuration
+VITE_AUTH0_DOMAIN=your-auth0-domain
+VITE_AUTH0_CLIENT_ID=your-auth0-client-id
+
+# MongoDB Configuration
+VITE_MONGO_URI=mongodb+srv://your-user:your-password@cluster.mongodb.net/your-db
+
+# Lex Dev Tools (Enable/Disable)
+VITE_LEX_DEV_MODE=true
+```
+
+### **7️⃣ Start Your App**
+Once you've added the required environment variables, start the development server:
+```sh
+npm run dev
+```
+
+---
+
+## **📖 Need More Help?**
+If you're unsure about how to set up **Auth0**, configure the **dashboard**, or manage environment variables, visit our **Quick Start Guide**:
+
+🔗 **[Lex Quick Start Documentation](https://lex.finosync.com/documentation/quickstart)**  
+
+---
+
 ## **🛠️ Features**
 ### **🔥 Instant App Setup**
+- **React 18 + Vite-powered development**
 - **Pre-built authentication** using **Auth0**
 - **User dashboard & navigation pre-configured**
 - **Lex Dev Tools** for debugging & development
 - **Pre-configured environment variables (`.env.example`)**
-  
+- **MongoDB database integration**  
+
 ### **💡 Seamless Developer Experience**
-- **React 18 + TypeScript**
-- **Vite-powered development**
-- **TailwindCSS for styling**
+- **TypeScript for strong typing & error prevention**
+- **TailwindCSS for rapid styling**
 - **Lex Developer Tools (`@finosync/lex-dev-core`)**
 - **Heroicons & Framer Motion for UI animations**  
 
@@ -66,17 +132,30 @@ When you run `npx @finosync/create-lex-app my-lex-app`, it generates:
 
 ```
 my-lex-app/
-├── src/
-│   ├── backend/config/      # Contains lex.config.ts for enabling Lex Dev Tools
-│   ├── components/          # Shared UI components
-│   ├── pages/               # Page-based routing system
-│   ├── App.tsx              # Main app component
-│   ├── main.tsx             # Entry point
-│   ├── index.css            # Global styles
-├── .env.example             # Environment variables reference
-├── package.json             # Project dependencies
-├── tsconfig.json            # TypeScript configuration
-├── README.md                # This file
+├── dist/                     # Production build output (generated)
+├── node_modules/             # Installed dependencies (generated)
+├── public/                   # Static assets (index.html, icons, etc.)
+├── src/                      # Source code
+│   ├── backend/config/       # Contains lex.config.ts for enabling Lex Dev Tools
+│   ├── backend/database/     # MongoDB database connection
+│   ├── components/           # Shared UI components
+│   ├── pages/                # Page-based routing system
+│   ├── App.tsx               # Main app component
+│   ├── main.tsx              # Entry point
+│   ├── index.css             # Global styles
+├── .env.example              # Environment variables reference
+├── .gitignore                # Files to ignore in Git
+├── eslint.config.js          # ESLint configuration
+├── index.html                # Root HTML file
+├── lex.dev.tsx               # Lex Dev Tools configuration
+├── LICENSE                   # MIT License
+├── package.json              # Project dependencies
+├── package-lock.json         # Lock file for package dependencies
+├── README.md                 # This file
+├── tsconfig.json             # TypeScript configuration
+├── tsconfig.app.json         # TypeScript config for app
+├── tsconfig.node.json        # TypeScript config for Node.js
+├── vite.config.ts            # Vite configuration
 ```
 
 ---
@@ -89,6 +168,9 @@ After creating your Lex app, update the `.env` file:
 # Auth0 Configuration
 VITE_AUTH0_DOMAIN=your-auth0-domain
 VITE_AUTH0_CLIENT_ID=your-auth0-client-id
+
+# MongoDB Configuration
+VITE_MONGO_URI=mongodb+srv://your-user:your-password@cluster.mongodb.net/your-db
 
 # Lex Dev Tools (Enable/Disable)
 VITE_LEX_DEV_MODE=true
@@ -119,7 +201,9 @@ This template includes the following **pre-installed** dependencies:
   "react-dom": "^18.3.1",
   "@finosync/lex-dev-core": "^1.0.0",
   "@heroicons/react": "^2.2.0",
-  "framer-motion": "^12.4.1"
+  "framer-motion": "^12.4.1",
+  "mongoose": "^6.3.1",
+  "express": "^4.18.2"
 },
 "devDependencies": {
   "@vitejs/plugin-react": "^4.3.4",
@@ -160,10 +244,3 @@ This project is licensed under the **MIT License** - Free for personal & commerc
 🔥 **Start building with Lex today!** 🚀  
 
 ---
-
-## **🔄 Next Steps**
-Now that your template is **ready to go**, you can:  
-✅ Push this to **GitHub**  
-✅ Publish it as **`create-lex-app`** on **npm**  
-✅ Promote it in the **Lex community** 🚀  
-
